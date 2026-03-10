@@ -33,10 +33,15 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Guide", link: "/" },
+      { text: "Packages", link: "/packages/" },
       { text: "Installation", link: "/public-api/installation" }
     ],
     sidebar: {
       "/packages/": [
+        {
+          text: "Catalog",
+          items: [{ text: "Packages", link: "/packages/" }]
+        },
         {
           text: "Composables",
           items: packageItems("packages/composables", "/packages/composables")

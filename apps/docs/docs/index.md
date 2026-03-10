@@ -7,11 +7,11 @@ hero:
   tagline: Vue composables, framework-agnostic utils, and an optional umbrella package.
   actions:
     - theme: brand
+      text: Browse Packages
+      link: /packages/
+    - theme: alt
       text: Installation
       link: /public-api/installation
-    - theme: alt
-      text: Use Debounce
-      link: /packages/composables/use-debounce
 
 features:
   - title: Independent releases
