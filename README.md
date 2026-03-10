@@ -42,6 +42,24 @@ pnpm publish-packages
 pnpm new:package -- --type composable --name use-throttle
 ```
 
+## Running docs
+
+The package documentation site lives in `apps/docs` and is built with VitePress.
+
+Run the docs locally from the repository root:
+
+```bash
+pnpm install
+pnpm dev:docs
+```
+
+Useful docs-specific commands:
+
+```bash
+pnpm --filter @ddosdor/hyde-park-docs build
+pnpm --filter @ddosdor/hyde-park-docs preview
+```
+
 ## Current public packages
 
 - `@ddosdor/hyde-park-util-deep-merge`
