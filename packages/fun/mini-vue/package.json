@@ -1,0 +1,44 @@
+{
+  "name": "@ddosdor/hyde-park-fun-mini-vue",
+  "version": "0.1.0",
+  "description": "Experimental mini Vue-like runtime from Hyde Park.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./jsx-runtime": {
+      "types": "./dist/jsx-runtime.d.ts",
+      "import": "./dist/jsx-runtime.js",
+      "require": "./dist/jsx-runtime.cjs"
+    },
+    "./jsx-dev-runtime": {
+      "types": "./dist/jsx-dev-runtime.d.ts",
+      "import": "./dist/jsx-dev-runtime.js",
+      "require": "./dist/jsx-dev-runtime.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "vitest run",
+    "clean": "node -e \"const fs=require('node:fs'); for (const path of ['dist','coverage','.turbo']) fs.rmSync(path,{recursive:true,force:true});\""
+  },
+  "devDependencies": {
+    "@ddosdor/hyde-park-typescript-config": "workspace:*"
+  }
+}

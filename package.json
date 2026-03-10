@@ -1,0 +1,39 @@
+{
+  "name": "hyde-park",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "pnpm run test:unit && pnpm run test:smoke",
+    "test:unit": "turbo run test",
+    "test:smoke": "pnpm run build && node ./scripts/smoke/consumer-smoke.mjs",
+    "dev": "pnpm run dev:docs",
+    "dev:docs": "pnpm --filter @ddosdor/hyde-park-docs dev",
+    "clean": "turbo run clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release:check": "pnpm run lint && pnpm run typecheck && pnpm run test && node ./scripts/release-check.mjs",
+    "publish-packages": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm exec changeset publish",
+    "new:package": "node ./scripts/new-package.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.30.0",
+    "@ddosdor/hyde-park-eslint-config": "workspace:*",
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^10.0.3",
+    "tsup": "^8.5.1",
+    "turbo": "^2.8.15",
+    "typescript": "^5.9.3",
+    "vitepress": "^1.6.4",
+    "vitest": "^4.0.18",
+    "vue": "^3.5.30"
+  }
+}

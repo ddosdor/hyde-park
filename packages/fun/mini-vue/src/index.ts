@@ -1,0 +1,7 @@
+export { h } from './h'
+export { mount } from './mount'
+export { patch } from './patch'
+export { reactive } from './reactive'
+export { ref } from './ref'
+export { watchEffect } from './effect'
+export { component } from './component'

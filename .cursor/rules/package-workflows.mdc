@@ -1,0 +1,47 @@
+---
+description: Use when creating or modifying Hyde Park packages, package docs, package exports, packaging scripts, or release wiring.
+globs:
+  - "packages/**/package.json"
+  - "packages/**/tsconfig.json"
+  - "packages/**/tsup.config.ts"
+  - "packages/**/src/**/*.ts"
+  - "packages/**/test/**/*.ts"
+  - "apps/docs/docs/packages/**/*.md"
+  - "scripts/new-package.mjs"
+  - "scripts/smoke/**/*.mjs"
+alwaysApply: false
+---
+
+Follow Hyde Park package standards.
+
+Codex Note:
+
+- If this file was reached from `AGENTS.md`, treat it as the package-change routing rule for work that touches package structure, exports, docs pages, generator logic, or release wiring.
+- For procedural steps, pair this rule with `.cursor/skills/add-package/SKILL.md` or `.cursor/skills/add-package-category/SKILL.md`, depending on the task.
+
+Read first:
+
+- `@docs/package-standards.md`
+- `@docs/creating-packages.md`
+- `@docs/release-guide.md`
+- `@docs/workspace-structure.md`
+
+Important package rules:
+
+- Public packages must have a real scoped npm name and version.
+- Public packages should expose `build`, `lint`, `typecheck`, `test`, and `clean` scripts.
+- Public packages should publish `ESM + CJS + d.ts`.
+- Public packages should use explicit `exports`.
+- Workspace dependencies should use `workspace:*`.
+- Public package docs should be added under `apps/docs/docs/packages/<category>/`.
+- If a package has unusual packaging behavior, update `scripts/smoke/consumer-smoke.mjs`.
+
+When adding a new package category:
+
+- decide the naming rule
+- add the docs folder
+- update `apps/docs/docs/.vitepress/config.ts`
+- update maintainer docs in `docs/`
+- decide whether `scripts/new-package.mjs` should support the category
+
+Do not treat the umbrella package as a replacement for leaf packages.

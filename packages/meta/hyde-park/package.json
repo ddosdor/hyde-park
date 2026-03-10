@@ -1,0 +1,51 @@
+{
+  "name": "@ddosdor/hyde-park",
+  "version": "0.1.0",
+  "description": "Umbrella package for Hyde Park composables and utilities.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./composables/use-debounce": {
+      "types": "./dist/composables/use-debounce.d.ts",
+      "import": "./dist/composables/use-debounce.js",
+      "require": "./dist/composables/use-debounce.cjs"
+    },
+    "./utils/deep-merge": {
+      "types": "./dist/utils/deep-merge.d.ts",
+      "import": "./dist/utils/deep-merge.js",
+      "require": "./dist/utils/deep-merge.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.30"
+  },
+  "dependencies": {
+    "@ddosdor/hyde-park-composable-use-debounce": "workspace:*",
+    "@ddosdor/hyde-park-util-deep-merge": "workspace:*"
+  },
+  "devDependencies": {
+    "@ddosdor/hyde-park-typescript-config": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "vitest run",
+    "clean": "node -e \"const fs=require('node:fs'); for (const path of ['dist','coverage','.turbo']) fs.rmSync(path,{recursive:true,force:true});\""
+  }
+}

@@ -1,0 +1,35 @@
+---
+description: Use when editing AGENTS.md, Cursor rules, Cursor skills, or maintainer docs.
+globs:
+  - "AGENTS.md"
+  - ".cursor/**/*.mdc"
+  - ".cursor/**/SKILL.md"
+  - "docs/**/*.md"
+alwaysApply: false
+---
+
+AI-facing repository guidance must stay aligned with the actual repository implementation.
+
+Codex Note:
+
+- If this file was reached from `AGENTS.md`, treat it as the maintenance rule for `AGENTS.md`, `.cursor/`, and `docs/` changes that affect AI operating context.
+- Prefer small, explicit updates that keep routing and repository reality synchronized.
+
+When changing AI context files:
+
+- verify the guidance still matches the current scripts, package layout, and release flow
+- prefer linking to canonical docs in `docs/` instead of duplicating large explanations everywhere
+- keep rules short and high-signal
+- keep skills procedural and task-focused
+- update `AGENTS.md` when project-wide AI expectations change
+
+For this repository, the primary canonical references are:
+
+- `@docs/project-overview.md`
+- `@docs/workspace-structure.md`
+- `@docs/tooling-guide.md`
+- `@docs/package-standards.md`
+- `@docs/creating-packages.md`
+- `@docs/release-guide.md`
+
+If a rule or skill starts describing behavior that no longer exists in the repo, update or remove it immediately.

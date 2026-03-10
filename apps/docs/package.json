@@ -1,0 +1,17 @@
+{
+  "name": "@ddosdor/hyde-park-docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json",
+    "clean": "node -e \"const fs=require('node:fs'); for (const path of ['docs/.vitepress/cache','docs/.vitepress/dist','.turbo']) fs.rmSync(path,{recursive:true,force:true});\""
+  },
+  "devDependencies": {
+    "@ddosdor/hyde-park-typescript-config": "workspace:*"
+  }
+}

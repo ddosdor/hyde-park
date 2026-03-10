@@ -1,0 +1,40 @@
+{
+  "name": "@ddosdor/hyde-park-composable-use-debounce",
+  "version": "0.1.0",
+  "description": "Vue 3 composable for debounced refs.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.30"
+  },
+  "dependencies": {
+    "@ddosdor/hyde-park-util-deep-merge": "workspace:*"
+  },
+  "devDependencies": {
+    "@ddosdor/hyde-park-typescript-config": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "vitest run",
+    "clean": "node -e \"const fs=require('node:fs'); for (const path of ['dist','coverage','.turbo']) fs.rmSync(path,{recursive:true,force:true});\""
+  }
+}

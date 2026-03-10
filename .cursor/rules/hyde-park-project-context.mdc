@@ -1,0 +1,37 @@
+---
+description: Core Hyde Park project context and canonical docs for AI agents.
+alwaysApply: true
+---
+
+Hyde Park is a TypeScript monorepo for independently versioned npm packages.
+
+Codex Note:
+
+- If this file was reached from `AGENTS.md`, treat it as the default repository context for nearly all Hyde Park tasks.
+- Use it to identify the canonical docs to read next, not as a replacement for the detailed documentation in `docs/`.
+
+Core repository facts:
+
+- Public leaf packages are the primary product.
+- `@ddosdor/hyde-park` is a convenience umbrella package.
+- Public package categories currently include `composables`, `utils`, `fun`, and `meta`.
+- Private workspace packages include `packages/tooling/*` and `apps/docs`.
+- The repository uses `pnpm`, `Turborepo`, `tsup`, `Changesets`, `Vitest`, `ESLint`, and `VitePress`.
+
+Canonical maintainer docs live in:
+
+- `@docs/project-overview.md`
+- `@docs/workspace-structure.md`
+- `@docs/tooling-guide.md`
+- `@docs/package-standards.md`
+- `@docs/creating-packages.md`
+- `@docs/release-guide.md`
+- `@docs/commands-reference.md`
+- `@docs/troubleshooting.md`
+
+When working in this repo:
+
+- Prefer the existing workspace conventions over inventing new structure.
+- Keep public packages independently installable and independently versioned.
+- Keep private tooling and docs packages private.
+- Keep AI-facing context in `AGENTS.md` and `.cursor/` aligned with the actual repository implementation.

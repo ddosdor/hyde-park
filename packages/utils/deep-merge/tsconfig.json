@@ -1,0 +1,14 @@
+{
+  "extends": "../../tooling/typescript-config/library.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src",
+    "test",
+    "tsup.config.ts"
+  ]
+}
