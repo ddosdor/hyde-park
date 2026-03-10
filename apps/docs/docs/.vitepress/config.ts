@@ -6,6 +6,10 @@ import { defineConfig } from "vitepress";
 
 const configDir = dirname(fileURLToPath(import.meta.url));
 const docsDir = dirname(configDir);
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const docsBase =
+  process.env.HYDE_PARK_DOCS_BASE ??
+  (process.env.GITHUB_ACTIONS === "true" && repositoryName ? `/${repositoryName}/` : "/");
 
 function toTitle(fileName: string): string {
   return fileName
@@ -28,6 +32,7 @@ function packageItems(relativeDirectory: string, routeBase: string) {
 export default defineConfig({
   title: "Hyde Park",
   description: "Composable Vue utilities and TypeScript helpers, published as independent npm packages.",
+  base: docsBase,
   cleanUrls: true,
   lastUpdated: true,
   themeConfig: {

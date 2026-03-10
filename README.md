@@ -3,6 +3,7 @@
 TypeScript monorepo for independently versioned utility packages, Vue composables, and an optional umbrella package.
 
 Maintainer documentation lives in [`docs/`](./docs/README.md).
+Published package docs: <https://ddosdor.github.io/hyde-park/>.
 
 ## Package model
 
@@ -59,6 +60,9 @@ Useful docs-specific commands:
 pnpm --filter @ddosdor/hyde-park-docs build
 pnpm --filter @ddosdor/hyde-park-docs preview
 ```
+
+GitHub Pages deployment is configured in [`.github/workflows/deploy-docs.yml`](./.github/workflows/deploy-docs.yml).
+After enabling `Settings > Pages > Build and deployment > Source: GitHub Actions`, pushes to `main` will publish the docs to <https://ddosdor.github.io/hyde-park/>.
 
 ## Current public packages
 
