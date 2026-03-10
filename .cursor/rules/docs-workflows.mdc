@@ -1,0 +1,35 @@
+---
+description: Use when editing repository documentation, package docs, README content, docs navigation, or other written guidance outside AI-only context files.
+globs:
+  - "README.md"
+  - "docs/**/*.md"
+  - "apps/docs/docs/**/*.md"
+  - "apps/docs/docs/.vitepress/config.ts"
+alwaysApply: false
+---
+
+Documentation in Hyde Park must describe the real repository, not an aspirational or outdated version of it.
+
+Codex Note:
+
+- If this file was reached from `AGENTS.md`, treat it as the routing rule for documentation work in `README.md`, root maintainer docs, and the VitePress package docs site.
+- Pair it with `.cursor/skills/update-docs/SKILL.md` for the procedural workflow.
+
+Read first:
+
+- `@docs/project-overview.md`
+- `@docs/workspace-structure.md`
+- `@docs/package-standards.md`
+- `@docs/release-guide.md`
+
+Documentation rules:
+
+- prefer updating existing canonical docs over scattering duplicate explanations
+- keep `README.md` short and oriented toward repository entry points
+- keep `docs/` focused on maintainers and repository workflows
+- keep `apps/docs/docs/` focused on package consumers and package discovery
+- update navigation when adding a new docs page that should be discoverable
+- if a package API or category changes, update both package docs and maintainer docs when both audiences are affected
+- if docs mention commands, package names, versions, paths, or release steps, verify them against the real repository
+
+If the documentation change is tied to a code or package change, finish the implementation first and then document the final behavior.

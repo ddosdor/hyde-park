@@ -58,6 +58,7 @@ Choose the minimum set required for the current task.
 - Before editing package metadata or package structure, read `docs/package-standards.md`.
 - Before creating a package, read `docs/creating-packages.md`.
 - Before releasing packages, read `docs/release-guide.md`.
+- Before editing maintainer docs, package docs, or `README.md`, read the canonical docs that describe the same area and keep documentation aligned with the actual repository state.
 - Before changing rules, skills, or AI-facing repository guidance, read `docs/project-overview.md`, `docs/workspace-structure.md`, and the files under `.cursor/`.
 
 ## Cursor Project Context
@@ -115,6 +116,22 @@ Typical triggers:
 - editing `.cursor/rules/*`
 - editing `.cursor/skills/*`
 - changing maintainer docs in `docs/`
+
+### Read when adding or updating documentation
+
+- `.cursor/rules/docs-workflows.mdc`
+- `.cursor/skills/update-docs/SKILL.md`
+- `docs/project-overview.md`
+- `docs/workspace-structure.md`
+- `docs/package-standards.md`
+
+Typical triggers:
+
+- editing `README.md`
+- editing package docs under `apps/docs/docs/`
+- editing maintainer docs under `docs/`
+- adding a new docs page, docs section, sidebar entry, or package catalog entry
+- updating documentation after a package, category, release flow, or repository convention change
 
 ## Priority Rule
 
