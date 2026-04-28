@@ -8,6 +8,7 @@ This repository uses several tools together. Each tool has a very specific job.
 - `Turborepo` orchestrates tasks across packages
 - `tsup` builds TypeScript libraries for npm
 - `Changesets` versions and publishes packages
+- `Renovate` proposes dependency and workflow update PRs
 - `Vitest` runs tests
 - `ESLint` enforces code quality
 - `VitePress` powers the package docs app
@@ -287,6 +288,42 @@ pnpm publish-packages
 
 Detailed release instructions are in [Release Guide](./release-guide.md).
 
+## Renovate
+
+### What Renovate does here
+
+Renovate automates dependency maintenance by opening pull requests for supported updates.
+
+In Hyde Park, that currently means:
+
+- npm package updates across the workspace
+- `pnpm-lock.yaml` maintenance
+- GitHub Actions version updates in `.github/workflows/`
+
+### Why Hyde Park uses Renovate
+
+This repository has one shared lockfile, shared root tooling, and multiple independently releasable public packages.
+
+Renovate helps keep the shared toolchain current without manually auditing every upstream release.
+
+### Important Renovate behavior in this repo
+
+The configuration lives in:
+
+- `renovate.json`
+
+Current repository-specific choices:
+
+- use `config:recommended` as the baseline
+- keep a dependency dashboard enabled
+- run weekly lockfile maintenance
+- group non-major `devDependencies` updates to reduce PR noise
+- group GitHub Actions updates into one PR
+
+Renovate does not replace the release workflow.
+
+If a Renovate PR changes a public package in a way that should ship to npm, the normal Changesets process still applies.
+
 ## Vitest
 
 ### What it does here
@@ -345,7 +382,8 @@ The repository workflow is intentionally layered:
 2. `Turborepo` orchestrates package scripts across the workspace
 3. `tsup` builds publishable package artifacts
 4. `Vitest` validates runtime behavior
-5. `Changesets` versions and publishes packages
+5. `Renovate` proposes dependency maintenance updates
+6. `Changesets` versions and publishes packages
 
 That layering is important.
 
