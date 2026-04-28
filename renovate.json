@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":maintainLockFilesWeekly",
+    ":semanticCommitsDisabled"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "automerge": false,
+  "platformAutomerge": false,
+  "prConcurrentLimit": 5,
+  "rangeStrategy": "bump",
+  "timezone": "Europe/Warsaw",
+  "packageRules": [
+    {
+      "description": "Keep routine toolchain churn low in this small monorepo.",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "non-major dev dependencies"
+    },
+    {
+      "description": "Update workflow actions together because the repo only has a small number of workflows.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "github actions"
+    }
+  ]
+}
